@@ -1,1 +1,5 @@
-﻿  DirectXEngine.vcxproj -> C:\Users\AlaG\Desktop\DirectXEngine\x64\Debug\DirectXEngine.exe
+﻿C:\Users\marco\source\repos\Redx93\DirectXEngine\DirectXEngine\ResourcesFiles\LastPassPixelShader.hlsl(76,26-38): warning X3081: comma expression used where a vector constructor may have been intended
+C:\Users\marco\source\repos\Redx93\DirectXEngine\DirectXEngine\ResourcesFiles\LastPassPixelShader.hlsl(83,21-64): warning X3206: 'SpotLight': implicit truncation of vector type
+  
+  compilation object save succeeded; see C:\Users\marco\Source\Repos\Redx93\DirectXEngine\x64\Debug\LastPassPixelShader.cso
+  DirectXEngine.vcxproj -> C:\Users\marco\Source\Repos\Redx93\DirectXEngine\x64\Debug\DirectXEngine.exe
