@@ -9,13 +9,13 @@ bool GameObjects::InitializeGameObjects(ID3D11Device* device, ID3D11DeviceContex
 
 	for (int i = 0; i < 1; i++)
 	{
-		for (int j = 0; j <1; j++)
+		for (int j = 0; j <4; j++)
 		{
 			Mesh cube;
 			//cube.InitializeObject(device, deviceContext, "ObjFiles/cube.obj");
-			cube.InitializeObject(device, deviceContext, "ObjFiles/boat.obj");
+			cube.InitializeObject(device, deviceContext, "ObjFiles/cube.obj");
 			cube.setScale(2, 2, 2);
-			cube.setPosition(4.f*j, 0.0f, 4.f*i);
+			cube.setPosition(4.f+3*j, 0.0f,0);
 			meshes.push_back(cube);
 
 		}

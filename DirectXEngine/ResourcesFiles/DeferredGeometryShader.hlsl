@@ -30,25 +30,27 @@ void main(triangle GS_IN input[3], inout TriangleStream<GSOutput> OutputStream)
 {
     GSOutput output;
 
-    /*float3 v = input[1].Pos - input[0].Pos;
+    float3 v = input[1].Pos - input[0].Pos;
     float3 u = input[2].Pos - input[0].Pos;
-    float3 normal = (cross(v, u));*/
+    float3 normal = normalize(cross(v, u));
     matrix mvp = mul(projection, mul(view, world));
 
-    float3 worldPos = (mul((float3x3) world, (input[0].Pos.xyz)));
-    /*normal = (mul((float3x3) world, normal));*/
+	float3 worldPos = (mul(((float3x3) view), input[0].Pos.xyz));
+	float3 worldnormal = (mul((float3x3) view, normal));
+
+
+
     //(v0 - p) * N >  = > 0
     // p  = viewPoint;
-    float3 dir = (camPos - worldPos);
-	float3 normal = input[0].Normal;
-    if (dot(normalize(dir), normalize(normal)) >= 0.0f)
+    float3 dir =  camPos- worldPos;
+    if (dot(input[0].Pos,normal) >= 0.0f)
     {
         for (uint i = 0; i < 3; i++)
         {
             output.pos = mul(mvp, input[i].Pos);
             output.normal = normalize(mul((float3x3) world, input[i].Normal));
             output.tex = input[i].tex;
-            output.worldPos = worldPos;
+            output.worldPos = mul((float3x3) world, input[i].Pos.xyz);
             output.camPos = camPos;
             OutputStream.Append(output);
          

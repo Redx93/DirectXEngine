@@ -174,7 +174,7 @@ void Graphics::FirstRender() {
 	deviceContext->ClearDepthStencilView(renderDepthStencil, D3D11_CLEAR_DEPTH, 1.0f, 0);
 
 	deviceContext->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
-	deviceContext->RSSetState(rasterizerState);
+	deviceContext->RSSetState(nullptr);
 
 }
 void Graphics::LastRender() {
@@ -497,7 +497,7 @@ bool Graphics::InitializeDirectX(HWND hwnd, int width, int height)
 	//Create Rasterize state
 	D3D11_RASTERIZER_DESC rasterizerDesc;
 	ZeroMemory(&rasterizerDesc, sizeof(D3D11_RASTERIZER_DESC));
-	rasterizerDesc.FillMode = D3D11_FILL_MODE::D3D11_FILL_SOLID;
+	rasterizerDesc.FillMode = D3D11_FILL_MODE::D3D11_FILL_WIREFRAME;
 	rasterizerDesc.CullMode = D3D11_CULL_MODE::D3D11_CULL_NONE;
 
 	hr = device->CreateRasterizerState(&rasterizerDesc,&rasterizerState);
@@ -524,9 +524,9 @@ bool Graphics::InitializeShaders()
 	UINT numElements = ARRAYSIZE(layout);
 	std::wstring shaderfolder = L"..\\x64\\Debug\\";
 
-	shader.CreatVertexShader(device, shaderfolder + L"VertexShader.cso", layout, numElements);
-	shader.CreatPixelShader(device, shaderfolder + L"PixelShader.cso");
-	shader.CreatGeometryShader(device, shaderfolder + L"GeometryShader.cso");
+	//shader.CreatVertexShader(device, shaderfolder + L"VertexShader.cso", layout, numElements);
+	//shader.CreatPixelShader(device, shaderfolder + L"PixelShader.cso");
+	//shader.CreatGeometryShader(device, shaderfolder + L"GeometryShader.cso");
 
 	lastPassShaders.CreatVertexShader(device, shaderfolder + L"LastPassVertexShader.cso", layout, numElements);
 	lastPassShaders.CreatPixelShader(device, shaderfolder + L"LastPassPixelShader.cso");

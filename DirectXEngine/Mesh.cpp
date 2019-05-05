@@ -26,7 +26,7 @@ void Mesh::draw()
 {
 	gIncrement += sin(0.001);
 	//setRotation(0.0f, 1.0, 0.0f, gIncrement);
-	UINT stride = sizeof(float) * 11;//sizeof(Vertex);
+	UINT stride = sizeof(Vertex);//sizeof(Vertex);
 	UINT offset = 0;
 	for (int i = 0; i < textures.size(); i++)
 	{
@@ -36,8 +36,8 @@ void Mesh::draw()
 			deviceContext->PSSetShaderResources(0, 1, textures[i].getTextureView());
 
 	}
+	MatricesBuffer.data.world =  getWorld();
 
-	MatricesBuffer.data.world = getWorld();
 	MatricesBuffer.updateConstantBuffer(deviceContext);
 	deviceContext->GSSetConstantBuffers(1, 1, MatricesBuffer.getConstantBuffer());
 	

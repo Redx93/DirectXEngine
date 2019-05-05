@@ -23,8 +23,7 @@ struct LightPixelShader {
 struct LIGHT {
 	LightPixelShader Light[2];
 };
-#ifndef  gg_H
-#define gg_H
+
 struct PerFrameMatrices
 {
 	XMMATRIX view;
@@ -32,7 +31,6 @@ struct PerFrameMatrices
 	XMFLOAT3 camPos;
 	float padding;//4 nu 16
 };
-#endif // ! gg_H
 
 struct Matrices {
 	XMMATRIX world;
@@ -42,7 +40,7 @@ struct Vertex
 	XMFLOAT3 Position;
 	XMFLOAT3 Normal;
 	XMFLOAT2 TextCoord;
-	XMFLOAT3 Color;
+	//XMFLOAT3 Color;
 };
 //
 //class Box
