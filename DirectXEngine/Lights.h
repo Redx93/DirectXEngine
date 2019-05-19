@@ -1,11 +1,11 @@
 #include "Lib/LoadObj.h"
 #include "Lib/ConstantBuffer.h"
 #include "Lib/Transform.h"
-enum LightType
-{
-	POINTLIGHT, 
-	SPOTLIGHT
-}; 
+//enum LightType
+//{
+//	POINTLIGHT, 
+//	SPOTLIGHT
+//}; 
 
 //struct Light {
 //	LightType type;

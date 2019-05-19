@@ -42,6 +42,12 @@ struct Vertex
 	XMFLOAT2 TextCoord;
 	//XMFLOAT3 Color;
 };
+enum LightType
+{
+	POINTLIGHT,
+	SPOTLIGHT
+};
+
 //
 //class Box
 //{

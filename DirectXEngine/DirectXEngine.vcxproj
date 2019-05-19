@@ -118,7 +118,6 @@
     <ClCompile Include="DirectXHelp.cpp" />
     <ClCompile Include="Engine.cpp" />
     <ClCompile Include="GameObjects.cpp" />
-    <ClCompile Include="Geometry.cpp" />
     <ClCompile Include="Graphics.cpp" />
     <ClCompile Include="imgui\imgui.cpp" />
     <ClCompile Include="imgui\imgui_demo.cpp" />
@@ -131,22 +130,14 @@
     <ClCompile Include="Lib\Shaders.cpp" />
     <ClCompile Include="Lib\Texture.cpp" />
     <ClCompile Include="Lib\Transform.cpp" />
-    <ClCompile Include="Lights.cpp" />
     <ClCompile Include="LoadObj.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="Main.cpp" />
-    <ClCompile Include="Mesh\Primitive.cpp" />
     <ClCompile Include="Mesh.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="Particles.cpp" />
-    <ClCompile Include="PointQuadtree.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="QuadTree.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
-    </ClCompile>
     <ClCompile Include="RenderWindow.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -172,18 +163,10 @@
     <ClInclude Include="Lib\Texture.h" />
     <ClInclude Include="Lib\Transform.h" />
     <ClInclude Include="Lib\VertexBuffer.h" />
-    <ClInclude Include="Lights.h" />
-    <ClInclude Include="Mesh\Primitive.h" />
     <ClInclude Include="Mesh.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
     </ClInclude>
     <ClInclude Include="Particles.h" />
-    <ClInclude Include="PointQuadtree.h">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
-    </ClInclude>
-    <ClInclude Include="QuadTree.h">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
-    </ClInclude>
     <ClInclude Include="RenderWindow.h" />
     <ClInclude Include="Vector3.h" />
   </ItemGroup>

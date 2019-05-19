@@ -4,7 +4,6 @@
 #include "Lib/Node.h"
 #include "DirectXHelp.h"
 #include "Mesh.h"
-#include "Geometry.h"
 #include <string>
 #include <iostream>
 

@@ -89,16 +89,7 @@ void Engine::Update()
 	if (GetAsyncKeyState(VK_CONTROL)) { //backspace 
 		gfx.camera.AdjustPosition(0.0f, -0.01f*dt, 0.0f);
 	}
-	if (GetAsyncKeyState(VK_F1)) { //backspace 
-		int testInt = gfx.came2 ? 1 : 0;
-		if (testInt != 1) {
-			gfx.came2 = true;
-		}
-		else {
-			gfx.came2 = false;
-			gfx.camera.AdjustPosition(gfx.LookAtPos);
-		}
-	}
+	
 
 	gfx.RenderFrame(dt);
 }

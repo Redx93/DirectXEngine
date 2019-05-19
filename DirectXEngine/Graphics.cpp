@@ -34,10 +34,6 @@ bool Graphics::Initialize(HWND hwnd, int width, int height)
 	ImGui::StyleColorsDark();
 
 	XMFLOAT3 pos(0, 0, 0);
-	camera2.SetLookAtPos(pos);
-	camera2.SetPosition(0,10,0);
-	camera2.SetRotation(camera.GetLeftVector()*-1);
-
 	
 	return true;
 }
@@ -48,73 +44,12 @@ float dist = 0.0f;
 float distZ = 0.0f;
 void Graphics::RenderFrame(float dt)
 {
-	/*Vector3 position(0, 0, 0);
-	Vector3 size(500, 500, 500);
-	AABB boundary(position, size);
-	qt = new QuadTreeClass(boundary, device, deviceContext);
-	for (int i = 0; i < objects.meshes.size(); i++)
-	{
-		XMFLOAT3 pos;
-		pos = objects.meshes[i].getPosition();
-		Elements el;
-		Vector3 Position(pos.x, pos.y, pos.z);
-		el.sphere.position = Position;
-		el.mesh = &objects.meshes[i];
-		qt->Insert(el);
-	}*/
-
-	//float clearColor[] = { 0.06f, 0.06f,0.06f, 1.0f };
-	//deviceContext->ClearRenderTargetView(this->renderTargetView, clearColor);
-	//deviceContext->ClearDepthStencilView(depthStencilView,
-	//	D3D11_CLEAR_DEPTH | D3D11_CLEAR_STENCIL, 1.0f, 0);
-
-
-	//deviceContext->IASetInputLayout(shader.GetVertexShader()->GetInputLayout());
-	//deviceContext->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
-	////after setting Topplogy we need to set rasterizer state
-	//deviceContext->RSSetState(rasterizerState);
-
-	////set depthStencil state
-	//deviceContext->OMSetDepthStencilState(nullptr, 0);
-	//deviceContext->HSSetShader(nullptr, nullptr, 0);
-	//deviceContext->DSSetShader(nullptr, nullptr, 0);
-
-	//deviceContext->PSSetSamplers(0, 1, &samplerState);
-	//deviceContext->PSSetConstantBuffers(0, 1, LightBuffer.getConstantBuffer());
-
-	//deviceContext->VSSetShader(shader.GetVertexShader()->++++++GetShader(), NULL, 0);
-	//deviceContext->GSSetShader(shader.GetGeometryShader()->GetShader(), nullptr, 0);
-	//deviceContext->PSSetShader(shader.GetPixelShader()->GetShader(), NULL, 0);
-
-	//FrustumCuller f(camera.GetViewMatrix(), camera.GetProjectionMatrix());
-
-	//constantBuffer.data.view = camera.GetViewMatrix();
-	//constantBuffer.data.camPos = camera.GetPositionFloat3();
-	//constantBuffer.data.projection = camera.GetProjectionMatrix();
-	//constantBuffer.updateConstantBuffer(deviceContext);
-	//deviceContext->GSSetConstantBuffers(0, 1, constantBuffer.getConstantBuffer());
-	//if (came2) {
-
-	//}
-	//else
-	//	//qt->Render(f);
-
-	//	for (int i = 0; i < objects.meshes.size(); i++){
-	//		objects.meshes[i].draw();
-	//	}
-
-	////draw objects
-	//deviceContext->GSSetShader(nullptr, nullptr, 0);
 	
 	FirstRender();
 	DrawPass();
 	LastRender();
 
 	updateImguie(dt);
-	//qt->ClearQuadTree(qt->getParent());
-	//qt = nullptr;
-	//delete[] qt;
-
 	this->swapchain->Present(0, NULL);
 }
 
@@ -222,22 +157,15 @@ void Graphics::DrawPass() {
 	deviceContext->GSSetShader(shader.GetGeometryShader()->GetShader(), nullptr, 0);
 	deviceContext->PSSetShader(shader.GetPixelShader()->GetShader(), NULL, 0);*/
 
-	FrustumCuller f(camera.GetViewMatrix(), camera.GetProjectionMatrix());
 
 	constantBuffer.data.view = camera.GetViewMatrix();
 	constantBuffer.data.camPos = camera.GetPositionFloat3();
 	constantBuffer.data.projection = camera.GetProjectionMatrix();
 	constantBuffer.updateConstantBuffer(deviceContext);
 	deviceContext->GSSetConstantBuffers(0, 1, constantBuffer.getConstantBuffer());
-	if (came2) {
-
-	}
-	else
-		//qt->Render(f);
-
-		for (int i = 0; i < objects.meshes.size(); i++) {
+	for (int i = 0; i < objects.meshes.size(); i++) {
 			objects.meshes[i].draw();
-		}
+	}
 
 }
 
@@ -497,7 +425,7 @@ bool Graphics::InitializeDirectX(HWND hwnd, int width, int height)
 	//Create Rasterize state
 	D3D11_RASTERIZER_DESC rasterizerDesc;
 	ZeroMemory(&rasterizerDesc, sizeof(D3D11_RASTERIZER_DESC));
-	rasterizerDesc.FillMode = D3D11_FILL_MODE::D3D11_FILL_WIREFRAME;
+	rasterizerDesc.FillMode = D3D11_FILL_MODE::D3D11_FILL_SOLID;
 	rasterizerDesc.CullMode = D3D11_CULL_MODE::D3D11_CULL_NONE;
 
 	hr = device->CreateRasterizerState(&rasterizerDesc,&rasterizerState);

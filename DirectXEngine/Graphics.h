@@ -1,8 +1,6 @@
 #ifndef Graphics_H
 #define Graphics_H
 
-//#include "Shaders.h"
-//#include "Vertex.h"
 
 #include "imgui/imgui.h"
 #include "imgui/imgui_impl_win32.h"
@@ -11,7 +9,6 @@
 #include "Input/Camera.h"
 #include "GameObjects.h"
 #include "Lib/Shaders.h"
-#include "PointQuadtree.h"
 
 //Colours
 static const float cyan[4] = { 0.0f, 1.0f, 1.0f, 1.0f };
@@ -41,9 +38,6 @@ public:
 
 	XMFLOAT3 LookAtPos = XMFLOAT3(0.0f, -1.0f, 0.0f);
 	Camera camera;
-	Camera camera2;
-	bool came2 = false;
-
 	//Deferred Render Functions
 	void FirstRender();
 	void LastRender();
@@ -56,8 +50,6 @@ public:
 private:
 	void updateImguie(float dt);
 	GameObjects objects;
-	QuadTreeClass* qt;
-	int nrOF;
 
 	ID3D11Device* device = nullptr;
 	ID3D11DeviceContext* deviceContext = nullptr;
@@ -75,7 +67,6 @@ private:
 	IDXGISwapChain* swapchain; //swap out our frames when we render it, 
 	 ID3D11RenderTargetView* renderTargetView; // for our window
 
-	Shader shader;
 	ID3D11RasterizerState* rasterizerState;
 	ID3D11Texture2D* depthStencilBuffer;
 	ID3D11DepthStencilView* depthStencilView;

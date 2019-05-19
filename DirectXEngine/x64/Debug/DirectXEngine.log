@@ -1,4 +1,1 @@
-﻿  Graphics.cpp
-C:\Users\AlaG\Desktop\DirectXEngine\DirectXEngine\Graphics.cpp(196): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\Users\AlaG\Desktop\DirectXEngine\DirectXEngine\Graphics.cpp(567): warning C4305: '=': truncation from 'double' to 'float'
-  DirectXEngine.vcxproj -> C:\Users\AlaG\Desktop\DirectXEngine\x64\Debug\DirectXEngine.exe
+﻿  DirectXEngine.vcxproj -> C:\Users\AlaG\Desktop\DirectXEngine\x64\Debug\DirectXEngine.exe
