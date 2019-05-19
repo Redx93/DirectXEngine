@@ -163,10 +163,10 @@ void Graphics::DrawPass() {
 	constantBuffer.data.projection = camera.GetProjectionMatrix();
 	constantBuffer.updateConstantBuffer(deviceContext);
 	deviceContext->GSSetConstantBuffers(0, 1, constantBuffer.getConstantBuffer());
-	for (int i = 0; i < objects.meshes.size(); i++) {
+	/*for (int i = 0; i < objects.meshes.size(); i++) {
 			objects.meshes[i].draw();
-	}
-
+	}*/
+	RenderBackToFront(&objects);
 }
 
 bool Graphics::InitializeGraphicsBuffer() {
@@ -302,6 +302,45 @@ void Graphics::InitializeScreenQuad() {
 	device->CreateBuffer(&indicesBufferDesc, &indexSubresourceData, &sqIndicesBuffer);
 } //Creates a quad to render the buffers to.
 
+bool Graphics::RenderBackToFront(GameObjects* o)
+{
+	int minIndex;
+
+	for (int i = 0; i < o->meshes.size() -1; i++)
+	{
+
+		minIndex = i;
+		for (int j = i+1; j < o->meshes.size(); j++)
+		{
+			if (LengthFromCamera(o->meshes[j].getPosition()) <
+				LengthFromCamera(o->meshes[minIndex].getPosition()))
+			{
+				minIndex = j;
+			}
+			Mesh Temp = o->meshes[minIndex];
+			o->meshes[minIndex] = o->meshes[i];
+			o->meshes[i] = Temp;
+		}
+
+	}
+
+	////render
+	//for (int i = 0; i < o->meshes.size(); i++)
+	//{
+	//	o->meshes[i].draw();
+	//}
+
+	o->meshes[FrontTobackMeshDraw].draw();
+	//o->meshes[FrontTobackMeshDraw + 1].draw();
+	return true;
+}
+
+float Graphics::LengthFromCamera(XMFLOAT3 p)
+{
+	XMFLOAT3 direction = DirectionLength(camera.GetPositionFloat3(), p);
+	return magnitude(direction);
+}
+
 void Graphics::updateImguie(float dt)
 {
 
@@ -324,7 +363,7 @@ void Graphics::updateImguie(float dt)
 	ImGui::Text("frame (%.1f FPS)", 1000.0f / dt);
 	//ImGui::SliderFloat("Adjust X", (float*)&adjust.x, -10.05f, 10.05f);
 	ImGui::SliderInt("Load Buffer: ", &deferredBufferDisplay, 0, 4);
-
+	ImGui::SliderInt("Mesh render: ", &FrontTobackMeshDraw, 0, 3);
 	//ImGui::Text("Draw %s Objects per frame", std::to_string(qt->GetDrawCount()).c_str());
 	//ImGui::Text("QuadTree Depth :%s", std::to_string(qt->GetDepth()).c_str());
 
