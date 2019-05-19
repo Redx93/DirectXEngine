@@ -1,1 +1,12 @@
-﻿  DirectXEngine.vcxproj -> C:\Users\AlaG\Desktop\DirectXEngine\x64\Debug\DirectXEngine.exe
+﻿  Engine.cpp
+c:\users\marco\source\repos\redx93\directxengine\directxengine\engine.cpp(28): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+c:\users\marco\source\repos\redx93\directxengine\directxengine\engine.cpp(36): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+c:\users\marco\source\repos\redx93\directxengine\directxengine\engine.cpp(46): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+c:\users\marco\source\repos\redx93\directxengine\directxengine\engine.cpp(72): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\marco\source\repos\redx93\directxengine\directxengine\engine.cpp(76): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\marco\source\repos\redx93\directxengine\directxengine\engine.cpp(80): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\marco\source\repos\redx93\directxengine\directxengine\engine.cpp(84): warning C4305: 'argument': truncation from 'double' to 'float'
+  Clock.cpp
+  Main.cpp
+  Generating Code...
+  DirectXEngine.vcxproj -> C:\Users\marco\Source\Repos\Redx93\DirectXEngine\x64\Debug\DirectXEngine.exe
