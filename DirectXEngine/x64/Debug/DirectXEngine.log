@@ -1,4 +1,9 @@
-﻿  Graphics.cpp
-C:\Users\AlaG\Desktop\DirectXEngine\DirectXEngine\Graphics.cpp(131): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\Users\AlaG\Desktop\DirectXEngine\DirectXEngine\Graphics.cpp(534): warning C4305: '=': truncation from 'double' to 'float'
-  DirectXEngine.vcxproj -> C:\Users\AlaG\Desktop\DirectXEngine\x64\Debug\DirectXEngine.exe
+﻿  Engine.cpp
+c:\users\aljg15\onedrive - bth student\documents\github\directxengine\directxengine\engine.cpp(28): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+c:\users\aljg15\onedrive - bth student\documents\github\directxengine\directxengine\engine.cpp(36): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+c:\users\aljg15\onedrive - bth student\documents\github\directxengine\directxengine\engine.cpp(46): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+c:\users\aljg15\onedrive - bth student\documents\github\directxengine\directxengine\engine.cpp(72): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\aljg15\onedrive - bth student\documents\github\directxengine\directxengine\engine.cpp(76): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\aljg15\onedrive - bth student\documents\github\directxengine\directxengine\engine.cpp(80): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\aljg15\onedrive - bth student\documents\github\directxengine\directxengine\engine.cpp(84): warning C4305: 'argument': truncation from 'double' to 'float'
+  DirectXEngine.vcxproj -> C:\Users\aljg15\OneDrive - BTH Student\Documents\GitHub\DirectXEngine\x64\Debug\DirectXEngine.exe

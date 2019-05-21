@@ -23,7 +23,7 @@ bool GameObjects::InitializeGameObjects(ID3D11Device* device, ID3D11DeviceContex
 
 	Mesh cube;
 	//cube.InitializeObject(device, deviceContext, "ObjFiles/cube.obj");
-	cube.InitializeObject(device, deviceContext, "ObjFiles/cube.obj");
+	cube.InitializeObject(device, deviceContext, "ObjFiles/boat.obj");
 	cube.setScale(2, 2, 2);
 	cube.setPosition(0.0f, 0.0f, 0.0);
 	meshes.push_back(cube);

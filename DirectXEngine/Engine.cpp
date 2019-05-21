@@ -56,8 +56,8 @@ void Engine::Update()
 
 	/*	gfx.camera.AdjustRotation(x*0.01f ,
 			y *0.01f, 0);*/
-		gfx.camera.AdjustRotation(y*0.01f*dt,
-			x *0.01f*dt, 0);
+		gfx.camera.AdjustRotation(y*0.01f,
+			x *0.01f, 0);
 	}
 	else
 	{
